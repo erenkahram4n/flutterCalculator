@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hesap_makinesi/calculator.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  return runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -10,6 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Hesap Makinesi",
+      theme: ThemeData.dark(),
       home: Screen(),
     );
   }
@@ -22,8 +25,14 @@ class Screen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "Hesap Makinesi",
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Icon(Icons.calculate),
+            Text(
+              "Hesap Makinesi",
+            ),
+          ],
         ),
       ),
       body: Calculator(),
